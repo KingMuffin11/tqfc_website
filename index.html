@@ -160,6 +160,10 @@ a:visited {
 	
 	
 	<img src="http://www.thequestforcandy.net/images/404_Page_-_Were_Closed.png" onmouseover="this.src='http://www.thequestforcandy.net/images//404_Page_-_Were_Closed_-_Animated_Single.gif'" class=center>
+	
+	<input id = "a" type = "button" value = "Set Wide" onclick = "setWide();" />
+	<input id = "b" type = "button" value = "Set Half" onclick = "setHalf();" />
+	
 	<div class="socials">
 		<a href="https://open.spotify.com/artist/59GZIaOVB3ivg93H5RZhX3?si=ltqTTyzJS2SbPGLHaY6D0A&dl_branch=1">Spotify | </a>
 		<a href="https://www.youtube.com/channel/UCLkBFOVUJGNnKEvbW1Lzksw">Youtube | </a>
@@ -168,3 +172,12 @@ a:visited {
 	</div>
 	
 </body>
+
+<script>
+	function setWide() {
+		document.body.style.width = '100%';
+	}
+	function setHalf() {
+		document.body.style.width = '50%';
+	}
+</script>
