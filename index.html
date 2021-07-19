@@ -126,6 +126,7 @@ a:visited {
 	<title>
 		Site Under Construction
 	</title>
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
@@ -161,8 +162,13 @@ a:visited {
 	
 	<img src="http://www.thequestforcandy.net/images/404_Page_-_Were_Closed.png" onmouseover="this.src='http://www.thequestforcandy.net/images//404_Page_-_Were_Closed_-_Animated_Single.gif'" class=center>
 	
+	<!--
 	<input id = "a" type = "button" value = "Set Wide" onclick = "setWide();" />
 	<input id = "b" type = "button" value = "Set Half" onclick = "setHalf();" />
+	-->
+	
+	<button id="half" style="position: relative; bottom: 30px">&raquo; Set Half</button>
+	<button id="full" style="position: relative; bottom: 30px">&raquo; Set Full</button><br></br>
 	
 	<div class="socials">
 		<a href="https://open.spotify.com/artist/59GZIaOVB3ivg93H5RZhX3?si=ltqTTyzJS2SbPGLHaY6D0A&dl_branch=1">Spotify | </a>
@@ -174,6 +180,17 @@ a:visited {
 </body>
 
 <script>
+
+	$( "#full" ).click(function() {
+	  $( "body" )
+		.animate({ width: "100%" }, 1000 );
+	});
+	
+	$( "#half" ).click(function() {
+	  $( "body" )
+		.animate({ width: "50%" }, 1000 );
+	});
+
 	function setWide() {
 		document.body.style.width = '100%';
 	}
