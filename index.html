@@ -2,14 +2,6 @@
 
 <style>
 
-.center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 250px;
-	width: 50%;
-}
-
 html {
 	cursor: url("http://www.thequestforcandy.net/images/Mouse_Cursor_-_Point_Small.png"), auto;
 }
@@ -23,21 +15,93 @@ html {
 
 }
 
-a:link {
-  color: white;
-  background-color: transparent;
-  text-decoration: bold;
-}
-
-a:visited {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
+.header_container {
+	background-color: #ffa733;
 }
 
 body {
 	height: 1000px;
 	background-color: #ff9200;
+}
+
+.game_dropdown , .home_dropdown {
+	float: right;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+  overflow: hidden;
+  background-color: #ffa733;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.navbar a , .game_button , .home_button {
+	float: right;
+	
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px 16px;
+	text-decoration: none;
+	
+	font-family: "Helvetica";
+	font-size: 20pt;
+	border: none;
+	background: none;
+}
+
+navbar .game_dropdown , navbar .home_dropdown {
+	position: relative;
+}
+
+.game_dropdown-content , .home_dropdown-content {
+  display: none;
+  position: absolute;
+  top:63px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.game_dropdown-content a , .home_dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.game_dropdown:hover .game_dropdown-content {
+  display: block;
+}
+
+.home_dropdown:hover .home_dropdown-content {
+  display: block;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 250px;
+	width: 50%;
+}
+
+.socials a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: bold;
+}
+
+.socials a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
 }
 
 </style>
@@ -47,14 +111,39 @@ body {
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="http://www.thequestforcandy.net/images/Snail_Icon_48x48.png" />
 	<title>
-		Site Under Construction!
+		Site Under Construction
 	</title>
 </head>
 
-
 <body>
-
-
+	<header>
+		<div class="header_container">
+			<!--list of links for navigation bar-->
+			<div class="navbar">
+				<a href="main.html" style="text-decoration: none; float: left; padding: 0; position:relative; top:2px; left:5px">
+					<img src="http://www.thequestforcandy.net/images/Snail_Icon_48x48.png">
+				</a>
+				<a href="main.html">Support</a>
+				<a href="main.html">Shop</a>
+				<div class="game_dropdown">
+					<button class="game_button">Explore</button>
+					<div class="game_dropdown-content">
+						<a href="#">World Map</a>
+						<a href="#">Monsters</a>
+					</div>
+				</div>
+				<div class="home_dropdown">
+					<button class="home_button">Home</button>
+					<div class="home_dropdown-content">
+						<a href="#">News Blog</a>
+						<a href="#">Server Status</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</header>
+	
+	
 	<img src="http://www.thequestforcandy.net/images/404_Page_-_Were_Closed.png" onmouseover="this.src='http://www.thequestforcandy.net/images//404_Page_-_Were_Closed_-_Animated_Single.gif'" class=center>
 	<div class="socials">
 		<a href="https://open.spotify.com/artist/59GZIaOVB3ivg93H5RZhX3?si=ltqTTyzJS2SbPGLHaY6D0A&dl_branch=1">Spotify | </a>
@@ -62,7 +151,5 @@ body {
 		<a href="https://www.reddit.com/r/TheQuestForCandy/">Reddit</a>
 		<br></br>
 	</div>
-
+	
 </body>
-
-</html>
