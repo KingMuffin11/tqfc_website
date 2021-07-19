@@ -167,8 +167,8 @@ a:visited {
 	<input id = "b" type = "button" value = "Set Half" onclick = "setHalf();" />
 	-->
 	
-	<button id="half" style="position: relative; bottom: 30px">&raquo; Set Half</button>
-	<button id="full" style="position: relative; bottom: 30px">&raquo; Set Full</button><br></br>
+	<input type="text" id="myInput" style="position: relative; bottom: 30px">
+	<button id="full" style="position: relative; bottom: 30px">&raquo; Set Value</button><br></br>
 	
 	<div class="socials">
 		<a href="https://open.spotify.com/artist/59GZIaOVB3ivg93H5RZhX3?si=ltqTTyzJS2SbPGLHaY6D0A&dl_branch=1">Spotify | </a>
@@ -182,13 +182,9 @@ a:visited {
 <script>
 
 	$( "#full" ).click(function() {
+	var str = $("#myInput").val() + "%";
 	  $( "body" )
-		.animate({ width: "100%" }, 1000 );
-	});
-	
-	$( "#half" ).click(function() {
-	  $( "body" )
-		.animate({ width: "50%" }, 1000 );
+		.animate({ width: str }, 1000 );
 	});
 
 	function setWide() {
