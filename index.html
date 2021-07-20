@@ -5,6 +5,7 @@
 html {
 	cursor: url("http://www.thequestforcandy.net/images/Mouse_Cursor_-_Point.png"), auto;
 	background-color: #cc7400;
+	overflow: hidden;
 }
 
 .socials {
@@ -21,9 +22,9 @@ html {
 }
 
 body {
-	height: 1000px;
+	height: calc(100vh - 51px);
 	background-color: #ff9200;
-	width: 50%;
+	width: 100%;
 	margin-left: auto;
     margin-right: auto;
 }
@@ -42,7 +43,7 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.navbar a , .game_button , .home_button {
+.navbar a, button , .game_button , .home_button {
 	float: right;
 	
 	display: block;
@@ -71,7 +72,7 @@ navbar .game_dropdown , navbar .home_dropdown {
   z-index: 1;
 }
 
-.game_dropdown-content a , .home_dropdown-content a {
+.game_dropdown-content button , .home_dropdown-content button {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -117,6 +118,35 @@ a:visited {
 	cursor: url("http://www.thequestforcandy.net/images/Mouse_Cursor_-_Web_Link.png"), auto;
 }
 
+iframe {
+	border: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
 </style>
 
 <html>
@@ -139,20 +169,20 @@ a:visited {
 						<img src="images/Site_Banner.png">
 					</a>
 				</div>
-				<a href='support/support.html'>Support</a>
-				<a href='shop/shop.html'>Shop</a>
+				<button onClick="setIframeSrc('support/support.html')">Support</button>
+				<button onClick="setIframeSrc('shop/shop.html')">Shop</button>
 				<div class="game_dropdown">
 					<button class="game_button">Explore</button>
 					<div class="game_dropdown-content">
-						<a href='map/map.html'>World Map</a>
-						<a href='monsters/monsters.html'>Monsters</a>
+						<button onClick="setIframeSrc('map/map.html')">World Map</button>
+						<button onClick="setIframeSrc('monsters/monsters.html')">Monsters</button>
 					</div>
 				</div>
 				<div class="home_dropdown">
 					<button class="home_button">Home</button>
 					<div class="home_dropdown-content">
-						<a href='news/news.html'>News Blog</a>
-						<a href='status/status.html'>Server Status</a>
+						<button onClick="setIframeSrc('news/news.html')">News Blog</button>
+						<button onClick="setIframeSrc('status/status.html')">Server Status</button>
 					</div>
 				</div>	
 			</div>
@@ -160,12 +190,15 @@ a:visited {
 	</header>
 	
 	
+	<iframe id="content_window" src="construction/construction.html" style="width: 100%; height: calc(100vh - 51px); "></iframe>
+	
+	<!--
 	<img src="http://www.thequestforcandy.net/images/404_Page_-_Were_Closed.png" onmouseover="this.src='http://www.thequestforcandy.net/images//404_Page_-_Were_Closed_-_Animated_Single.gif'" class=center>
 	
 	<!--
 	<input id = "a" type = "button" value = "Set Wide" onclick = "setWide();" />
 	<input id = "b" type = "button" value = "Set Half" onclick = "setHalf();" />
-	-->
+	
 	
 	<input type="text" id="myInput" style="position: relative; bottom: 30px">
 	<button id="full" style="position: relative; bottom: 30px">&raquo; Set Value</button><br></br>
@@ -176,10 +209,15 @@ a:visited {
 		<a href="https://www.reddit.com/r/TheQuestForCandy/">Reddit</a>
 		<br></br>
 	</div>
+	-->
 	
 </body>
 
 <script>
+
+	function setIframeSrc(new_src) {
+		document.getElementById('content_window').src = new_src;
+	}
 
 	$( "#full" ).click(function() {
 	var str = $("#myInput").val() + "%";
