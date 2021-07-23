@@ -52,6 +52,108 @@ a:visited {
 	cursor: url("http://www.thequestforcandy.net/images/Mouse_Cursor_-_Web_Link.png"), auto;
 }
 
+.news_container {
+	width: 50%;
+	margin-left: auto;
+    margin-right: auto;
+	background-color: blue;
+	padding-bottom: 30px;
+}
+
+.main_article  {
+	position: relative;
+	width: 98%;
+	margin-left: auto;
+    margin-right: auto;
+	top: 10px;
+	background-color: red;
+}
+
+.featured_articles {
+	display: flex;
+	position: relative;
+	width: 98%;
+	margin-left: auto;
+    margin-right: auto;
+	top: 20px;
+	background-color: red;
+}
+
+.main_article img {
+	width: 100%;
+}
+
+.featured_article {
+	background-color: yellow;
+}
+
+.featured_article img {
+	width: 100%;
+}
+
+.all_articles_container {
+	position: relative;
+	width: 98%;
+	margin-left: auto;
+    margin-right: auto;
+	top: 30px;
+	background-color: cyan;
+}
+
+.search_box {
+	width: 100%;
+	margin-left: auto;
+    margin-right: auto;
+	background-color: green;
+}
+
+.search_box input {
+	border: 1px solid black;
+	width: 95.5%;
+	padding: 20px;
+	font-size: 20pt;
+}
+
+.all_articles {
+	width: 100%;
+	height: 250px;
+	margin-left: auto;
+    margin-right: auto;
+	background-color: magenta;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#articles {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article {
+	border: 2px solid yellowgreen;
+	margin-bottom: 2px;
+}
+
+.article .article_header {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	font-size: 20pt;
+	font-family: Helvetica;
+}
+
+.article .article_tagline {
+	padding: 0;
+	margin: 0;
+	font-size: 10pt;
+	font-family: Helvetica;
+}
+
+.article p {
+	margin:0;
+}
+
 </style>
 
 <html>
@@ -65,7 +167,89 @@ a:visited {
 
 <body>
 
-	<p>news page</p>
+	
+	<div class="news_container">
+		<div class="main_article">
+			<img src="images/test_article_main.png">
+		</div>
+		
+		<div class="featured_articles">
+			<div class="featured_article" style="margin-right: 5px;">
+				<img src="images/test_article_featured.png">
+			</div>
+			
+			<div class="featured_article" style="margin-right: 5px; margin-left: 5px">
+				<img src="images/test_article_featured.png">
+			</div>
+			
+			<div class="featured_article" style="margin-left: 5px;">
+				<img src="images/test_article_featured.png">
+			</div>
+		</div>
+		
+		<div class="all_articles_container">
+			<div class="search_box">
+				<input type="text" placeholder="Search TQFC News!.." onkeyup="updateArticles()" id="article_search">
+			</div>
+			
+			<div class="all_articles">
+				<ul id="articles">
+					<li>
+						<div class="article" id="search me">
+							<div class="article_header">
+								<p>Search me</p>
+							</div>
+							<div class="article_tagline">
+								<p>TQFC preview text, something about the game is written here</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="article" id="and me">
+							<div class="article_header">
+								<p>And me</p>
+							</div>
+							<div class="article_tagline">
+								<p>TQFC preview text, something about the game is written here</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="article" id="tqfc title">
+							<div class="article_header">
+								<p>TQFC Title</p>
+							</div>
+							<div class="article_tagline">
+								<p>TQFC preview text, something about the game is written here</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="article" id="inventory system">
+							<div class="article_header">
+								<p>Inventory system</p>
+							</div>
+							<div class="article_tagline">
+								<p>TQFC preview text, something about the game is written here</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="article" id="storage">
+							<div class="article_header">
+								<p>Storage</p>
+							</div>
+							<div class="article_tagline">
+								<p>TQFC preview text, something about the game is written here</p>
+							</div>
+						</div>
+					</li>
+					
+					
+				</ul>
+			</div>
+		</div>
+	</div>
 	
 	<!--
 	<input id = "a" type = "button" value = "Set Wide" onclick = "setWide();" />
@@ -82,6 +266,20 @@ a:visited {
 </body>
 
 <script>
-
-
+function updateArticles() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("article_search");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("articles");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        div = li[i].getElementsByTagName("div")[0];
+        txtValue = div.id;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
 </script>
